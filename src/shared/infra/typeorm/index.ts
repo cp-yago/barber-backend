@@ -6,6 +6,7 @@ import User from '@modules/users/infra/typeorm/entities/User';
 
 export const AppDataSource = new DataSource({
   type: "mongodb",
+  useUnifiedTopology: true,
   host: "localhost",
   port: 27017,
   synchronize: true,
