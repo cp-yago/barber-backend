@@ -1,14 +1,15 @@
-import { getMongoRepository, MongoRepository } from 'typeorm';
+import { MongoRepository } from 'typeorm';
 
 import INotificationsRepository from '../../../repositories/INotificationsRepository';
 import Notification from '../schemas/Notification';
 import ICreateNotificationDTO from '../../../dtos/ICreateNotificationDTO';
+import { AppDataSource } from '@shared/infra/typeorm';
 
 class NotificationsRepository implements INotificationsRepository {
 	private ormRepository: MongoRepository<Notification>;
 
 	constructor() {
-		this.ormRepository = getMongoRepository(Notification, 'mongo');
+		this.ormRepository = AppDataSource.getMongoRepository(Notification);
 	}
 
 	public async create({
