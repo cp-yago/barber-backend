@@ -4,7 +4,7 @@ import Appointment from '@modules/appointments/infra/typeorm/entities/Appointmen
 import Notification from '@modules/notifications/infra/typeorm/schemas/Notification';
 import User from '@modules/users/infra/typeorm/entities/User';
 
-const dataSource = new DataSource({
+export const AppDataSource = new DataSource({
   type: "mongodb",
   host: "localhost",
   port: 27017,
@@ -12,7 +12,7 @@ const dataSource = new DataSource({
   entities: [Appointment, Notification, User]
 })
 
-dataSource
+AppDataSource
     .initialize()
     .catch(function (error) {
         console.log("Error: ", error)
