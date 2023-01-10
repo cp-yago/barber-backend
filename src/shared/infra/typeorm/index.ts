@@ -1,3 +1,19 @@
-import { createConnections } from 'typeorm';
+import { DataSource } from 'typeorm';
 
-createConnections();
+import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
+import Notification from '@modules/notifications/infra/typeorm/schemas/Notification';
+import User from '@modules/users/infra/typeorm/entities/User';
+
+const dataSource = new DataSource({
+  type: "mongodb",
+  host: "localhost",
+  port: 27017,
+  synchronize: true,
+  entities: [Appointment, Notification, User]
+})
+
+dataSource
+    .initialize()
+    .catch(function (error) {
+        console.log("Error: ", error)
+    })
