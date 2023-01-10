@@ -5,13 +5,13 @@ import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
 import IFindAllProvidersDTO from '@modules/users/dtos/IFindAllProvidersDTO';
 
 import User from '../entities/User';
-import { AppDataSource } from '@shared/infra/typeorm';
+import { PgDataSource } from '@shared/infra/typeorm';
 
 class UsersRepository implements IUsersRepository {
   private ormRepository: Repository<User>;
 
   constructor() {
-    this.ormRepository = AppDataSource.getRepository(User);
+    this.ormRepository = PgDataSource.getRepository(User);
   }
 
   public async findById(id: string): Promise<User | null> {
@@ -42,11 +42,11 @@ class UsersRepository implements IUsersRepository {
 
 
   public async create(userData: ICreateUserDTO): Promise<User> {
-    const appointment = this.ormRepository.create(userData);
+    const user = this.ormRepository.create(userData);
 
-    await this.ormRepository.save(appointment);
+    await this.ormRepository.save(user);
 
-    return appointment;
+    return user;
   }
 
   public async save(user: User): Promise<User> {

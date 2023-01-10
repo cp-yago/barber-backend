@@ -16,6 +16,7 @@ export default class UsersController {
       password,
     });
 
+    // @ts-expect-error
     delete user.password;
 
     return response.json(classToClass(user));
