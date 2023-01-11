@@ -5,9 +5,11 @@ import IStorageProvider from '../models/IStorageProvider';
 
 class DiskStorageProvider implements IStorageProvider {
   public async saveFile(file: string): Promise<string> {
+    const tmpFolder = path.resolve(uploadConfig.tmpFolder, file)
+    const uploadsFolder = path.resolve(uploadConfig.uploadsFolder, file)
     await fs.promises.rename(
-      path.resolve(uploadConfig.tmpFolder, file),
-      path.resolve(uploadConfig.uploadsFolder, file),
+      tmpFolder,
+      uploadsFolder,
     );
     return file;
   }
