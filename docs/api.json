@@ -288,6 +288,43 @@
           }
         }
       }
+    },
+    "/password/reset": {
+      "post": {
+        "summary": "Reset password",
+        "description": "Reset password",
+        "tags": [
+          "Password"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "example": "6cb968a8-4954-44cb-bd02-113d4257ef91"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Senha@123"
+                  },
+                  "password_confirmation": {
+                    "type": "string",
+                    "example": "Senha@123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Operation successful"
+          }
+        }
+      }
     }
   },
   "components": {
