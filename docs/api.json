@@ -46,6 +46,36 @@
           }
         }
       }
+    },
+    "/sessions": {
+      "post": {
+        "summary": "Login",
+        "description": "Login",
+        "tags": [
+          "Sessions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/login_request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/login_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -82,6 +112,10 @@
             "type": "string",
             "example": "valid@email.com"
           },
+          "avatar": {
+            "type": "string",
+            "example": null
+          },
           "password": {
             "type": "string",
             "example": "Sidelab@2022"
@@ -93,6 +127,69 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "avatar_url": {
+            "type": "string",
+            "example": null
+          }
+        }
+      },
+      "login_request": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "valid@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "Sidelab@2022"
+          }
+        }
+      },
+      "login_ok_response": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "b39518ac-1aaa-4ced-85b7-aa3c9bb0f8fa"
+              },
+              "name": {
+                "type": "string",
+                "example": "John Doe"
+              },
+              "email": {
+                "type": "string",
+                "example": "valid@email.com"
+              },
+              "avatar": {
+                "type": "string",
+                "example": null
+              },
+              "password": {
+                "type": "string",
+                "example": "Sidelab@2022"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "avatar_url": {
+                "type": "string",
+                "example": null
+              }
+            }
+          },
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzM0NDI0NTMsImV4cCI6MTY3MzUyODg1Mywic3ViIjoiMDRjNDEyNDMtOTI0Zi00NDU2LTliNjMtYzcxZTFjZjkwMTNkIn0.JgfhD39GCKiQFlWe-4gqj8VckcjBIuzymEaB6dVBJoE"
           }
         }
       }
