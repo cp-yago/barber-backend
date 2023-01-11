@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Go Barber API",
+    "description": "API for scheduling barber services",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Yago Cunha",
+      "email": "yago.cunha123@gmail.com",
+      "url": "https://www.linkedin.com/in/yagocunha/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Dev server"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "Create a new user",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/create_user"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/create_user_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "create_user": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "valid@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "Sidelab@2022"
+          }
+        }
+      },
+      "create_user_ok_response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "b39518ac-1aaa-4ced-85b7-aa3c9bb0f8fa"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "valid@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "Sidelab@2022"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
