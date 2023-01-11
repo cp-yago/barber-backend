@@ -259,6 +259,35 @@
           }
         }
       }
+    },
+    "/password/forgot": {
+      "post": {
+        "summary": "Send forgot password email",
+        "description": "Send forgot password email",
+        "tags": [
+          "Password"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "johndoe@mail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Operation successful"
+          }
+        }
+      }
     }
   },
   "components": {

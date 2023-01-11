@@ -3,13 +3,13 @@ import { Repository } from 'typeorm';
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
 
 import UserToken from '../entities/UserToken';
-import { AppDataSource } from '@shared/infra/typeorm';
+import { PgDataSource } from '@shared/infra/typeorm';
 
 class UserTokensRepository implements IUserTokensRepository {
   private ormRepository: Repository<UserToken>;
 
   constructor() {
-    this.ormRepository = AppDataSource.getRepository(UserToken);
+    this.ormRepository = PgDataSource.getRepository(UserToken);
   }
 
   public async findByToken(token: string): Promise<UserToken | null> {

@@ -3,6 +3,7 @@ import { DataSource } from 'typeorm';
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
 import Notification from '@modules/notifications/infra/typeorm/schemas/Notification';
 import User from '@modules/users/infra/typeorm/entities/User';
+import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
 
 export const PgDataSource = new DataSource({
   type: "postgres",
@@ -12,7 +13,7 @@ export const PgDataSource = new DataSource({
   database: "gobarber",
   port: 5432,
   synchronize: true,
-  entities: [Appointment, User]
+  entities: [Appointment, User, UserToken]
 })
 
 export const AppDataSource = new DataSource({
