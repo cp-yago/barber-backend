@@ -195,6 +195,70 @@
           }
         }
       }
+    },
+    "/providers/{provider-id}/month-availability": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/provider-id"
+        },
+        {
+          "$ref": "#/components/parameters/month"
+        },
+        {
+          "$ref": "#/components/parameters/year"
+        }
+      ],
+      "get": {
+        "summary": "Return availability of month",
+        "description": "Return availability of month",
+        "tags": [
+          "Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/availability_ok_response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/providers/{provider-id}/day-availability": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/provider-id"
+        }
+      ],
+      "get": {
+        "summary": "Return availability of month",
+        "description": "Return availability of month",
+        "tags": [
+          "Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/availability_ok_response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -459,6 +523,19 @@
             }
           }
         }
+      },
+      "availability_ok_response": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "number",
+            "example": 1
+          },
+          "available": {
+            "type": "boolean",
+            "example": false
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -466,6 +543,44 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "provider-id": {
+        "name": "provider-id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1115ff07-1b21-415b-9e8c-c6359fa4814y"
+        }
+      },
+      "day": {
+        "name": "day",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "example": 1
+        }
+      },
+      "month": {
+        "name": "month",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "example": 1
+        }
+      },
+      "year": {
+        "name": "year",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "example": 1
+        }
       }
     }
   }
