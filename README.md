@@ -26,7 +26,7 @@ Barber API is a REST API built in Node.js + Typescript that helps barbers and cu
 
 ## Docs
 
-- Click [here]("https://github.com/cp-yago/barber-backend/blob/master/docs/api.json") to open openApi specification or see in "/docs"
+- Click [here](https://github.com/cp-yago/barber-backend/blob/master/docs/api.json) to open openApi specification or see in "/docs"
 
 ## How to execute this project
 
