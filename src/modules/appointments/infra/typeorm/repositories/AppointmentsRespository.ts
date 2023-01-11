@@ -6,13 +6,13 @@ import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllI
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
 
 import Appointment from '../entities/Appointment';
-import { AppDataSource } from '@shared/infra/typeorm';
+import { PgDataSource } from '@shared/infra/typeorm';
 
 class AppointmentsRepository implements IAppointmentsRepository {
   private ormRepository: Repository<Appointment>;
 
   constructor() {
-    this.ormRepository = AppDataSource.getRepository(Appointment);
+    this.ormRepository = PgDataSource.getRepository(Appointment);
   }
 
   public async findByDate(date: Date, provider_id: string ): Promise<Appointment | null> {
