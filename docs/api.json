@@ -47,6 +47,42 @@
         }
       }
     },
+    "/users/avatar": {
+      "patch": {
+        "summary": "Upload user avatar",
+        "description": "Upload user avatar",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "multpart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/upload_avatar_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sessions": {
       "post": {
         "summary": "Login",
@@ -131,6 +167,43 @@
           "avatar_url": {
             "type": "string",
             "example": null
+          }
+        }
+      },
+      "upload_avatar_ok_response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "b39518ac-1aaa-4ced-85b7-aa3c9bb0f8fa"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "valid@email.com"
+          },
+          "avatar": {
+            "type": "string",
+            "example": "3cc24b96332814e1f684-filename.jpg"
+          },
+          "password": {
+            "type": "string",
+            "example": "Sidelab@2022"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "avatar_url": {
+            "type": "string",
+            "example": "http://192.168.0.17:3333/files/3cc24b96332814e1f684-filename.jpg"
           }
         }
       },
