@@ -325,6 +325,57 @@
           }
         }
       }
+    },
+    "/profile": {
+      "get": {
+        "summary": "Show profile",
+        "description": "Show profile",
+        "tags": [
+          "Users",
+          "Profile"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/create_user_ok_response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Edit profile",
+        "description": "Edit profile",
+        "tags": [
+          "Users",
+          "Profile"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/create_user_ok_response"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/create_user_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
