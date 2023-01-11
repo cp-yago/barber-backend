@@ -21,6 +21,7 @@ Barber API is a REST API built in Node.js + Typescript that helps barbers and cu
   - Send forgot password email
   - Reset password
 - Profile
+  - Upload avatar
   - Show profile info
   - Edit profile
 
