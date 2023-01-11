@@ -171,6 +171,30 @@
           }
         }
       }
+    },
+    "/providers": {
+      "get": {
+        "summary": "Return a list of providers",
+        "description": "Return a list of providers",
+        "tags": [
+          "Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/create_user_ok_response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
