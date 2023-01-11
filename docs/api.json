@@ -16,6 +16,11 @@
       "description": "Dev server"
     }
   ],
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
   "paths": {
     "/users": {
       "post": {
@@ -118,7 +123,7 @@
         "summary": "Create a new appointment",
         "description": "Create a new appointment",
         "tags": [
-          "appointments"
+          "Appointments"
         ],
         "requestBody": {
           "content": {
@@ -136,6 +141,30 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/create_appointment_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/me": {
+      "get": {
+        "summary": "Return appointments of logged user",
+        "description": "Return appointments of logged user",
+        "tags": [
+          "Appointments"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/my_appointments_ok_response"
+                  }
                 }
               }
             }
@@ -339,6 +368,80 @@
             "format": "date-time"
           }
         }
+      },
+      "my_appointments_ok_response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "provider_id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "user_id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-02-01T12:00:00"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "b39518ac-1aaa-4ced-85b7-aa3c9bb0f8fa"
+              },
+              "name": {
+                "type": "string",
+                "example": "John Doe"
+              },
+              "email": {
+                "type": "string",
+                "example": "valid@email.com"
+              },
+              "avatar": {
+                "type": "string",
+                "example": "3cc24b96332814e1f684-filename.jpg"
+              },
+              "password": {
+                "type": "string",
+                "example": "Sidelab@2022"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "avatar_url": {
+                "type": "string",
+                "example": "http://192.168.0.17:3333/files/3cc24b96332814e1f684-filename.jpg"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
