@@ -112,6 +112,36 @@
           }
         }
       }
+    },
+    "/appointments": {
+      "post": {
+        "summary": "Create a new appointment",
+        "description": "Create a new appointment",
+        "tags": [
+          "appointments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/create_appointment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/create_appointment_ok_response"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -263,6 +293,50 @@
           "token": {
             "type": "string",
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzM0NDI0NTMsImV4cCI6MTY3MzUyODg1Mywic3ViIjoiMDRjNDEyNDMtOTI0Zi00NDU2LTliNjMtYzcxZTFjZjkwMTNkIn0.JgfhD39GCKiQFlWe-4gqj8VckcjBIuzymEaB6dVBJoE"
+          }
+        }
+      },
+      "create_appointment": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-02-01T12:00:00"
+          }
+        }
+      },
+      "create_appointment_ok_response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "provider_id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "user_id": {
+            "type": "string",
+            "example": "2d9bfe9c-6fa8-44f0-9153-ca00616b750f"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-02-01T12:00:00"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       }
