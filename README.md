@@ -1,4 +1,4 @@
-# Barber API
+# Barber Shop API
 
 ## About
 
