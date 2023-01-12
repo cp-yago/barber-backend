@@ -2,7 +2,7 @@
 
 ## About
 
-Barber API is a REST API built in Node.js + Typescript that helps barbers and customers to schedule and manage their appointments.
+Barber Shop API is a REST API built in Node.js + Typescript that helps barbers and customers to schedule and manage their appointments.
 
 ## Resources
 
@@ -27,17 +27,17 @@ Barber API is a REST API built in Node.js + Typescript that helps barbers and cu
 
 ## Docs
 
-- Click [here](https://github.com/cp-yago/barber-backend/blob/master/docs/api.json) to open openApi specification or see in "/docs"
+- Click [here](https://github.com/cp-yago/barber-shop-backend/blob/master/docs/api.json) to open openApi specification or see in "/docs"
 
 ## How to execute this project
 
 ```bash
 # clone this repo
 
-$ git clone https://github.com/cp-yago/barber-backend.git
+$ git clone https://github.com/cp-yago/barber-shop-backend.git
 
 # or ssh
-$ git clone git@github.com:cp-yago/barber-backend.git
+$ git clone git@github.com:cp-yago/barber-shop-backend.git
 
 # install dependencies
 
